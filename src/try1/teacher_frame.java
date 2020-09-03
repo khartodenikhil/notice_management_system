@@ -273,7 +273,7 @@ public class teacher_frame extends javax.swing.JFrame {
         new_notice a=new new_notice();
         a.setVisible(true);
         a.from_txt.setText("Teacher");
-        this.setVisible(false);
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2MouseClicked
 

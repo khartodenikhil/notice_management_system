@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author nikhil
  */
-public class new_sign_in extends javax.swing.JFrame {
+public class add_new_user extends javax.swing.JFrame {
 
     Connection conn=conntry.connectdb();
     PreparedStatement ps=null;
@@ -23,7 +23,7 @@ public class new_sign_in extends javax.swing.JFrame {
     /**
      * Creates new form new_sign_in
      */
-    public new_sign_in() {
+    public add_new_user() {
         initComponents();
         conntry.connectdb();
     }
@@ -49,7 +49,6 @@ public class new_sign_in extends javax.swing.JFrame {
         email_txt = new javax.swing.JTextField();
         submit_bt = new javax.swing.JButton();
         password_txt = new javax.swing.JPasswordField();
-        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,9 +77,6 @@ public class new_sign_in extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel6.setText("Add User");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -106,10 +102,6 @@ public class new_sign_in extends javax.swing.JFrame {
                         .addGap(256, 256, 256)
                         .addComponent(submit_bt)))
                 .addContainerGap(100, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(266, 266, 266))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,8 +113,6 @@ public class new_sign_in extends javax.swing.JFrame {
                         .addGap(24, 24, 24))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel6)
-                        .addGap(18, 18, 18)
                         .addComponent(name_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,7 +132,7 @@ public class new_sign_in extends javax.swing.JFrame {
                     .addComponent(email_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(submit_bt)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(160, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -233,20 +223,21 @@ public class new_sign_in extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(new_sign_in.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(add_new_user.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(new_sign_in.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(add_new_user.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(new_sign_in.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(add_new_user.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(new_sign_in.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(add_new_user.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new new_sign_in().setVisible(true);
+                new add_new_user().setVisible(true);
             }
         });
     }
@@ -258,7 +249,6 @@ public class new_sign_in extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField name_txt;
     private javax.swing.JPasswordField password_txt;
