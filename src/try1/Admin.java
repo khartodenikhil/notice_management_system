@@ -400,6 +400,7 @@ public class Admin extends javax.swing.JFrame {
         new_sign_in a= new new_sign_in();
             
             a.setVisible(true);
+      
     }//GEN-LAST:event_add_userMouseClicked
 
     private void add_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_userActionPerformed
@@ -435,6 +436,7 @@ public class Admin extends javax.swing.JFrame {
         delete_user aa= new delete_user();
             
             aa.setVisible(true);
+            this.setVisible(false);
     }//GEN-LAST:event_delete_userMouseClicked
 
     private void delete_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_userActionPerformed

@@ -184,7 +184,11 @@ public class delete_user extends javax.swing.JFrame {
                  {
                      JOptionPane.showMessageDialog(null,ex);
                  } 
-            }// TODO add your handling code here:
+            }
+           Admin obj=new Admin();
+           obj.setVisible(true);
+           this.setVisible(false);
+           // TODO add your handling code here:
     }//GEN-LAST:event_submit_btMouseClicked
 
     private void phone_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phone_txtActionPerformed
