@@ -64,12 +64,6 @@ public class add_new_user extends javax.swing.JFrame {
 
         post_txt.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "Principal", "HOD", "Teacher", "Student" }));
 
-        phone_txt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                phone_txtActionPerformed(evt);
-            }
-        });
-
         submit_bt.setText("Submit");
         submit_bt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -149,9 +143,12 @@ public class add_new_user extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void phone_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phone_txtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_phone_txtActionPerformed
+   public int addUser(String name,String post,String password,String phone,String email) {
+	   if(name.equals("") || name.length()>29 || post.equals("") || phone.length()>10 || email.endsWith("@gmail.com") || password.equals("")) {
+		   return 0;
+	   }
+	   return 1;
+   }
    
     private void submit_btMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submit_btMouseClicked
         String name=name_txt.getText();
@@ -159,7 +156,13 @@ public class add_new_user extends javax.swing.JFrame {
         String password=password_txt.getText();
         String phone=phone_txt.getText();
         String email=email_txt.getText();
-       
+        
+        if(addUser(name,post,password,phone,email)==1) {
+        	 JOptionPane.showMessageDialog(null, "added user successfully");
+        }
+        else {
+       	 	JOptionPane.showMessageDialog(null, "please insert correct details");
+        }
         
            if(name.equals("") && name.length()>29 )
            {
@@ -183,7 +186,7 @@ public class add_new_user extends javax.swing.JFrame {
            }
             else{
                     PreparedStatement ps;
-                   String query="insert into nikhil.login (username,password,post,phone_number,email_id)values(?,?,?,?,?)";
+                   String query="insert into noticeBoard.login (username,password,post,phone_number,email_id)values(?,?,?,?,?)";
                     try
                     {
                         ps=conn.prepareStatement(query);
@@ -199,7 +202,7 @@ public class add_new_user extends javax.swing.JFrame {
                         a.setVisible(true);
                         this.setVisible(false);
                     }
-                   catch(SQLException ex)
+                   catch(SQLException ex) 
                  {
                      JOptionPane.showMessageDialog(null,ex);
                  } 

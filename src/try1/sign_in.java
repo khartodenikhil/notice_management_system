@@ -71,7 +71,7 @@ public class sign_in extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 51, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\nikhil\\Desktop\\images.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("/home/nikhil/Desktop/profile.jpg")); // NOI18N
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, 110, 123));
 
         hod_bt.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N

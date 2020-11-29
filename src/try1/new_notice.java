@@ -37,7 +37,7 @@ public class new_notice extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel(); 
         to_msg = new javax.swing.JComboBox();
         send_btn = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -133,7 +133,15 @@ public class new_notice extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public int sendNotice(String notice,String notice_from,String notice_to) {        
+        if(notice.length()>99 || notice_from.length()<3|| notice_to.length()<3)
+        {
+         //JOptionPane.showMessageDialog(null, "Notice length seems to be too long");
+         return 0;
+	    }
+	   // JOptionPane.showMessageDialog(null, "Notice sent succesfully");
+	    return 1;
+    }
     private void send_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_send_btnMouseClicked
         
         Calendar cal=new GregorianCalendar();
@@ -150,62 +158,69 @@ public class new_notice extends javax.swing.JFrame {
         String notice=notice_content.getText();
         String notice_from=from_txt.getText();
         String notice_to=to_msg.getSelectedItem().toString();
+        if(sendNotice(notice,notice_from,notice_to)==1) {
+        	JOptionPane.showMessageDialog(null, "Notice length seems to be too long");        	
+        }
+        else {
+        	
+        } 
         
-        if(notice.length()<99)
-        {
-         PreparedStatement ps;
-            String query="insert into nikhil.notice_details (notice_from,notice,notice_to,notice_time,notice_date)values(?,?,?,?,?)";
-         try
-           {
-               ps=conn.prepareStatement(query);
-               ps.setString(1, notice_from);
-               ps.setString(2, notice);
-               ps.setString(3, notice_to);
-               ps.setString(4, time_txt);
-               ps.setString(5, date_txt);
-               int i= ps.executeUpdate();
-               JOptionPane.showMessageDialog(null, "record succesfully added");
-               
-                  if(from_txt.getText().equalsIgnoreCase("Principal"))
-                    {
-                        principal_frame a= new principal_frame();
-                        a.setVisible(true);
-                        this.setVisible(false);
-                    }
-                     if(from_txt.getText().equalsIgnoreCase("HOD"))
-                    {
-                        hod_frame a= new hod_frame();
-                        a.setVisible(true);
-                        this.setVisible(false);
-                    }
-                      if(from_txt.getText().equalsIgnoreCase("Teacher"))
-                    {
-                        teacher_frame a= new teacher_frame();
-                        a.setVisible(true);
-                        this.setVisible(false);
-                    }
-                       if(from_txt.getText().equalsIgnoreCase("Library Staff"))
-                    {
-                        library_frame a= new library_frame();
-                        a.setVisible(true);
-                        this.setVisible(false);
-                    }
-                        if(from_txt.getText().equalsIgnoreCase("office staff"))
-                    {
-                        office_staff_frame a= new office_staff_frame();
-                        a.setVisible(true);
-                        this.setVisible(false);
-                    }
-           }
-          catch(SQLException ex)
-        {
-            JOptionPane.showMessageDialog(null,ex);
-        }
-       }
-       else
-        {
-             JOptionPane.showMessageDialog(null, "Notice length seems to be too long");
-        }
+//        
+//        if(notice.length()<99)
+//        {
+//         PreparedStatement ps;
+//            String query="insert into nikhil.notice_details (notice_from,notice,notice_to,notice_time,notice_date)values(?,?,?,?,?)";
+//         try
+//           {
+//               ps=conn.prepareStatement(query);
+//               ps.setString(1, notice_from);
+//               ps.setString(2, notice);
+//               ps.setString(3, notice_to);
+//               ps.setString(4, time_txt);
+//               ps.setString(5, date_txt);
+//               int i= ps.executeUpdate();
+//               JOptionPane.showMessageDialog(null, "record succesfully added");
+//               
+//                  if(from_txt.getText().equalsIgnoreCase("Principal"))
+//                    {
+//                        principal_frame a= new principal_frame();
+//                        a.setVisible(true);
+//                        this.setVisible(false);
+//                    }
+//                     if(from_txt.getText().equalsIgnoreCase("HOD"))
+//                    {
+//                        hod_frame a= new hod_frame();
+//                        a.setVisible(true);
+//                        this.setVisible(false);
+//                    }
+//                      if(from_txt.getText().equalsIgnoreCase("Teacher"))
+//                    {
+//                        teacher_frame a= new teacher_frame();
+//                        a.setVisible(true);
+//                        this.setVisible(false);
+//                    }
+//                       if(from_txt.getText().equalsIgnoreCase("Library Staff"))
+//                    {
+//                        library_frame a= new library_frame();
+//                        a.setVisible(true);
+//                        this.setVisible(false);
+//                    }
+//                        if(from_txt.getText().equalsIgnoreCase("office staff"))
+//                    {
+//                        office_staff_frame a= new office_staff_frame();
+//                        a.setVisible(true);
+//                        this.setVisible(false);
+//                    }
+//           }
+//          catch(SQLException ex)
+//        {
+//            JOptionPane.showMessageDialog(null,ex);
+//        }
+//       }
+//       else
+//        {
+//             JOptionPane.showMessageDialog(null, "Notice length seems to be too long");
+//        }
                
  
 // TODO add your handling code here:

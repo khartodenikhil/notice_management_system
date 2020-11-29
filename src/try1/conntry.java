@@ -19,7 +19,7 @@ class conntry {
                 Connection conn=null;
                 try
                 {
-                   conn =DriverManager.getConnection("jdbc:derby://localhost:1527/try", "nikhil", "root");
+                   conn =DriverManager.getConnection("jdbc:mysql://localhost:3306/houmain", "nikhil", "root");
                     return conn;
                 }
                 catch(SQLException e)

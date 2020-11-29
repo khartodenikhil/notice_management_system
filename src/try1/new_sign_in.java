@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
+
 /**
  *
  * @author nikhil
@@ -163,6 +164,14 @@ public class new_sign_in extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_phone_txtActionPerformed
    
+    public int register(String name, String post, String password, String phone, String email) {
+    	 if(name.equals("") || name.length()>29 || post.equals("")||phone.length()>10 || !email.endsWith("@gmail.com") || password.equals("") )
+         {
+        	  return 0;
+          }
+    	 return 1;
+    	 
+    }
     private void submit_btMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submit_btMouseClicked
         String name=name_txt.getText();
         String post=post_txt.getSelectedItem().toString();
@@ -170,50 +179,32 @@ public class new_sign_in extends javax.swing.JFrame {
         String phone=phone_txt.getText();
         String email=email_txt.getText();
        
-        
-           if(name.equals("") && name.length()>29 )
-           {
-               JOptionPane.showMessageDialog(null, "please insert correct name (length seens too long)");
-           }
-           else if(post.equals(""))
-           {
-               JOptionPane.showMessageDialog(null, "please select post");
-           }
-            else if( phone.length()>10)
-           {
-               JOptionPane.showMessageDialog(null, "please insert correct phone number");
-           }
-           else if(!email.endsWith("@gmail.com"))
-           {
-               JOptionPane.showMessageDialog(null, "please insert correct email");
-           }
-            else if(password.equals(""))
-           {
-               JOptionPane.showMessageDialog(null, "please insert password");
-           }
-            else{
-                    PreparedStatement ps;
-                   String query="insert into nikhil.login (username,password,post,phone_number,email_id)values(?,?,?,?,?)";
-                    try
-                    {
-                        ps=conn.prepareStatement(query);
-                        ps.setString(1, name);
-                        ps.setString(2, password);
-                        ps.setString(3, post);
-                        ps.setString(4, phone);
-                        ps.setString(5, email);
-                        int i= ps.executeUpdate();
-                        JOptionPane.showMessageDialog(null, "record succesfully added");
-
-                        login a=new login();
-                        a.setVisible(true);
-                        this.setVisible(false);
-                    }
-                   catch(SQLException ex)
-                 {
-                     JOptionPane.showMessageDialog(null,ex);
-                 } 
-            }// TODO add your handling code here:
+        if(register(name,post,password,phone,email)==1){
+        	JOptionPane.showMessageDialog(null, "registration succeful");
+        }
+//            else{
+//                    PreparedStatement ps;
+//                   String query="insert into nikhil.login (username,password,post,phone_number,email_id)values(?,?,?,?,?)";
+//                    try
+//                    {
+//                        ps=conn.prepareStatement(query);
+//                        ps.setString(1, name);
+//                        ps.setString(2, password);
+//                        ps.setString(3, post);
+//                        ps.setString(4, phone);
+//                        ps.setString(5, email);
+//                        int i= ps.executeUpdate();
+//                        JOptionPane.showMessageDialog(null, "record succesfully added");
+//
+//                        login a=new login();
+//                        a.setVisible(true);
+//                        this.setVisible(false);
+//                    }
+//                   catch(SQLException ex)
+//                 {
+//                     JOptionPane.showMessageDialog(null,ex);
+//                 } 
+//            }// TODO add your handling code here:
     }//GEN-LAST:event_submit_btMouseClicked
 
     /**
