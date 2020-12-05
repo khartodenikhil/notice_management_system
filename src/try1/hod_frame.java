@@ -48,8 +48,7 @@ public class hod_frame extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\nikhil\\Desktop\\images.png")); // NOI18N
-        jLabel1.setText("jLabel1");
+        jButton1.setIcon(new javax.swing.ImageIcon("/home/nikhil/Desktop/profile.jpeg")); 
 
         jButton1.setText("Create Notice");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -149,7 +148,7 @@ public class hod_frame extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Date", "Time", "Notice"
+                "Date", "Notice"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -205,7 +204,7 @@ public class hod_frame extends javax.swing.JFrame {
         mainpanel.repaint();
         mainpanel.revalidate();
         
-        String query="select notice_from,notice_time,notice_date,notice from notice_details where notice_from='Principal' and notice_to='hod'";
+        String query="select notice_from,notice_date,notice from notice_details where notice_from='Principal' and notice_to='hod'";
          try
            {
                  ps=conn.prepareStatement(query);
@@ -217,8 +216,7 @@ public class hod_frame extends javax.swing.JFrame {
                         Object[] row=new Object[3];
                         //     vector.add(name);  
                         row[0] = rs.getString("notice_date");  
-                        row[1] = rs.getString("notice_time");  
-                        row[2] = rs.getString("notice");  
+                        row[1] = rs.getString("notice");  
                         for(int i=0;i<model.getRowCount();i++)
                         {
                             model.removeRow(i);

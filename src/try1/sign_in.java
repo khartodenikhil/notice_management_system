@@ -71,7 +71,7 @@ public class sign_in extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 51, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\nikhil\\Desktop\\images.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("/home/nikhil/Desktop/profile.jpeg")); // NOI18N
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, 110, 123));
 
         hod_bt.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -159,7 +159,7 @@ public class sign_in extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Date", "Time", "Notice"
+                "Date", "Notice"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -188,7 +188,7 @@ public class sign_in extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Date", "Time", "Notice"
+                "Date", "Notice"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -217,7 +217,7 @@ public class sign_in extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Date", "Time", "Notice"
+                "Date", "Notice"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -246,7 +246,7 @@ public class sign_in extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Date", "Time", "Notice"
+                "Date", "Notice"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -275,7 +275,7 @@ public class sign_in extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Date", "Time", "Notice"
+                "Date", "Notice"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -325,7 +325,7 @@ public class sign_in extends javax.swing.JFrame {
         mainframe.repaint();
         mainframe.revalidate();
         
-         String query="select notice_from,notice_time,notice_date,notice from notice_details where notice_from='Principal' and notice_to='Student'";
+         String query="select notice_from,notice_date,notice from noticeBoard.notice_details where notice_from='Principal' and notice_to='Student'";
          try
            {
                  ps=conn.prepareStatement(query);
@@ -334,11 +334,10 @@ public class sign_in extends javax.swing.JFrame {
                while(rs.next())
                {
                         
-                        Object[] row=new Object[3];
+                        Object[] row=new Object[2];
                         //     vector.add(name);  
                         row[0] = rs.getString("notice_date");  
-                        row[1] = rs.getString("notice_time");  
-                        row[2] = rs.getString("notice"); 
+                        row[1] = rs.getString("notice");  
                          for(int i=0;i<model.getRowCount();i++)
                         {
                             model.removeRow(i);
@@ -361,7 +360,7 @@ public class sign_in extends javax.swing.JFrame {
         mainframe.removeAll();
         mainframe.repaint();
         mainframe.revalidate();
-                  String query="select notice_from,notice_time,notice_date,notice from notice_details where notice_from='HOD' and notice_to='Student'";
+                  String query="select notice_from,notice_date,notice from noticeBoard.notice_details where notice_from='HOD' and notice_to='Student'";
          try
            {
                  ps=conn.prepareStatement(query);
@@ -370,11 +369,10 @@ public class sign_in extends javax.swing.JFrame {
                while(rs.next())
                {
                         
-                        Object[] row=new Object[3];
+                        Object[] row=new Object[2];
                         //     vector.add(name);  
                         row[0] = rs.getString("notice_date");  
-                        row[1] = rs.getString("notice_time");  
-                        row[2] = rs.getString("notice");   
+                        row[1] = rs.getString("notice");  
                          for(int i=0;i<model.getRowCount();i++)
                         {
                             model.removeRow(i);
@@ -398,7 +396,7 @@ public class sign_in extends javax.swing.JFrame {
          mainframe.removeAll();
         mainframe.repaint();
         mainframe.revalidate();
-          String query="select notice_from,notice_time,notice_date,notice from notice_details where notice_from='Teacher' and notice_to='Student'";
+          String query="select notice_from,notice_date,notice from noticeBoard.notice_details where notice_from='Teacher' and notice_to='Student'";
          try
            {
                  ps=conn.prepareStatement(query);
@@ -407,11 +405,10 @@ public class sign_in extends javax.swing.JFrame {
                while(rs.next())
                {
                         
-                        Object[] row=new Object[3];
+                        Object[] row=new Object[2];
                         //     vector.add(name);  
                         row[0] = rs.getString("notice_date");  
-                        row[1] = rs.getString("notice_time");  
-                        row[2] = rs.getString("notice");
+                        row[1] = rs.getString("notice");  
                          for(int i=0;i<model.getRowCount();i++)
                         {
                             model.removeRow(i);
@@ -435,7 +432,7 @@ public class sign_in extends javax.swing.JFrame {
      mainframe.removeAll();
         mainframe.repaint();
         mainframe.revalidate();
-          String query="select notice_from,notice_time,notice_date,notice from notice_details where notice_from='Office Staff' and notice_to='Student'";
+          String query="select notice_from,notice_date,notice from noticeBoard.notice_details where notice_from='Office Staff' and notice_to='Student'";
          try
            {
                  ps=conn.prepareStatement(query);
@@ -444,11 +441,10 @@ public class sign_in extends javax.swing.JFrame {
                while(rs.next())
                {
                         
-                        Object[] row=new Object[3];
+                        Object[] row=new Object[2];
                         //     vector.add(name);  
                         row[0] = rs.getString("notice_date");  
-                        row[1] = rs.getString("notice_time");  
-                        row[2] = rs.getString("notice");       
+                        row[1] = rs.getString("notice");       
                          for(int i=0;i<model.getRowCount();i++)
                         {
                             model.removeRow(i);
@@ -472,7 +468,7 @@ public class sign_in extends javax.swing.JFrame {
         mainframe.removeAll();
         mainframe.repaint();
         mainframe.revalidate();
-          String query="select notice_from,notice_time,notice_date,notice from notice_details where notice_from='Library staff' and notice_to='Student'";
+          String query="select notice_from,notice_date,notice from noticeBoard.notice_details where notice_from='Library staff' and notice_to='Student'";
          try
            {
               ps=conn.prepareStatement(query);
@@ -481,11 +477,10 @@ public class sign_in extends javax.swing.JFrame {
                while(rs.next())
                {
                         
-                        Object[] row=new Object[3];
+                        Object[] row=new Object[2];
                         //     vector.add(name);  
                         row[0] = rs.getString("notice_date");  
-                        row[1] = rs.getString("notice_time");  
-                        row[2] = rs.getString("notice");
+                        row[1] = rs.getString("notice");  
                          for(int i=0;i<model.getRowCount();i++)
                         {
                             model.removeRow(i);
@@ -509,7 +504,7 @@ public class sign_in extends javax.swing.JFrame {
         int index=jTable1.getSelectedRow();
         DefaultTableModel model=(DefaultTableModel)jTable1.getModel();
         display_notice_table o=new display_notice_table();
-        o.notice_f.setText( model.getValueAt(index, 2).toString());
+        o.notice_f.setText( model.getValueAt(index, 1).toString());
         o.notice_f.setEditable(false);
         o.setVisible(true);
     }//GEN-LAST:event_jTable1MouseClicked
@@ -518,7 +513,7 @@ public class sign_in extends javax.swing.JFrame {
         int index=jTable2.getSelectedRow();
         DefaultTableModel model=(DefaultTableModel)jTable2.getModel();
         display_notice_table o=new display_notice_table();
-        o.notice_f.setText( model.getValueAt(index, 2).toString());
+        o.notice_f.setText( model.getValueAt(index, 1).toString());
         o.notice_f.setEditable(false);
         o.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jTable2MouseClicked
@@ -527,7 +522,7 @@ public class sign_in extends javax.swing.JFrame {
         int index=jTable3.getSelectedRow();
         DefaultTableModel model=(DefaultTableModel)jTable3.getModel();
         display_notice_table o=new display_notice_table();
-        o.notice_f.setText( model.getValueAt(index, 2).toString());
+        o.notice_f.setText( model.getValueAt(index, 1).toString());
         o.notice_f.setEditable(false);
         o.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jTable3MouseClicked
@@ -536,7 +531,7 @@ public class sign_in extends javax.swing.JFrame {
         int index=jTable4.getSelectedRow();
         DefaultTableModel model=(DefaultTableModel)jTable4.getModel();
         display_notice_table o=new display_notice_table();
-        o.notice_f.setText( model.getValueAt(index, 2).toString());
+        o.notice_f.setText( model.getValueAt(index, 1).toString());
         o.notice_f.setEditable(false);
         o.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jTable4MouseClicked

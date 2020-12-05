@@ -140,51 +140,50 @@ public class delete_user extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-   
+   public int delete(String name,String post,String phone) {
+
+       if(name.equals("") || name.length()>29 || post.equals("")|| phone.length()>10)
+       {
+           return 0;
+       }
+       return 1;
+   }
     private void submit_btMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submit_btMouseClicked
         String name=name_txt.getText();
         String post=post_txt.getSelectedItem().toString();
         
         String phone=phone_txt.getText();
-        
        
-        
-           if(name.equals("") && name.length()>29 )
-           {
-               JOptionPane.showMessageDialog(null, "please insert correct name (length seens too long)");
-           }
-           else if(post.equals(""))
-           {
-               JOptionPane.showMessageDialog(null, "please select post");
-           }
-            else if( phone.length()>10)
-           {
-               JOptionPane.showMessageDialog(null, "please insert correct phone number");
-           }
-           
-            else{
-                    PreparedStatement ps;
-                   String query="delete from nikhil.login (username,post,phone_number)values(?,?,?)";
-                    try
-                    {
-                        ps=conn.prepareStatement(query);
-                        ps.setString(1, name);
-                        
-                        ps.setString(3, post);
-                        ps.setString(4, phone);
-                        
-                        int i= ps.executeUpdate();
-                        JOptionPane.showMessageDialog(null, "record succesfully Delete");
-
-                        login a=new login();
-                        a.setVisible(true);
-                        this.setVisible(false);
-                    }
-                   catch(SQLException ex)
-                 {
-                     JOptionPane.showMessageDialog(null,ex);
-                 } 
-            }
+        if(delete(name,post,phone)==1) {
+        	JOptionPane.showMessageDialog(null,"record deleted succesfully");
+        }
+        else {
+        	JOptionPane.showMessageDialog(null,"record not found");
+        }
+//           
+//            else{
+//                    PreparedStatement ps;
+//                   String query="delete from nikhil.login (username,post,phone_number)values(?,?,?)";
+//                    try
+//                    {
+//                        ps=conn.prepareStatement(query);
+//                        ps.setString(1, name);
+//                        
+//                        ps.setString(3, post);
+//                        ps.setString(4, phone);
+//                        
+//                        int i= ps.executeUpdate();
+//                        JOptionPane.showMessageDialog(null, "record succesfully Delete");
+//
+//                        login a=new login();
+//                        a.setVisible(true);
+//                        this.setVisible(false);
+//                    }
+//                   catch(SQLException ex)
+//                 {
+//                     JOptionPane.showMessageDialog(null,ex);
+//                 } 
+//            }
            Admin obj=new Admin();
            obj.setVisible(true);
            this.setVisible(false);

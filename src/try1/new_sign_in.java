@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
+
 /**
  *
  * @author nikhil
@@ -163,6 +164,14 @@ public class new_sign_in extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_phone_txtActionPerformed
    
+    public int register(String name, String post, String password, String phone, String email) {
+    	 if(name.equals("") || name.length()>29 || post.equals("")||phone.length()>10 || !email.endsWith("@gmail.com") || password.equals("") )
+         {
+        	  return 0;
+          }
+    	 return 1;
+    	 
+    }
     private void submit_btMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submit_btMouseClicked
         String name=name_txt.getText();
         String post=post_txt.getSelectedItem().toString();
@@ -193,7 +202,7 @@ public class new_sign_in extends javax.swing.JFrame {
            }
             else{
                     PreparedStatement ps;
-                   String query="insert into nikhil.login (username,password,post,phone_number,email_id)values(?,?,?,?,?)";
+                   String query="insert into noticeBoard.login (username,password,post,phone_number,email_id)values(?,?,?,?,?)";
                     try
                     {
                         ps=conn.prepareStatement(query);

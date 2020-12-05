@@ -58,7 +58,7 @@ public class login extends javax.swing.JFrame
 
         jLabel2.setText("Username");
 
-        proffesion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Principal", "Student", "Teacher", "HOD", "Office staff", "Librarian Staff" }));
+        proffesion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Principal", "Student", "Teacher", "HOD", "Office staff", "Librarian Staff","Admin" }));
 
         jLabel3.setText("Password");
 
@@ -166,66 +166,74 @@ public class login extends javax.swing.JFrame
             this.setVisible(false);
             a.setVisible(true);
     }//GEN-LAST:event_bt_sign_inMouseClicked
-
+	public int loginTask(String username,String password,String profession) {
+		if(username.equals("") || username.length()>29 || profession.equals("") || password.equals("") || password.length()>15 )
+         {
+        	  return 0;
+          }
+    	 return 1; 
+	}
     private void Login_btMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Login_btMouseClicked
-               
         
-        String login="Select * from login where username=? AND password=? AND post=?";
-        try{
-            ps=conn.prepareStatement(login);
-            ps.setString(1,username.getText());
-            ps.setString(2,password.getText());
-            ps.setString(3,proffesion.getSelectedItem().toString());
-            rs=ps.executeQuery();
-            if(rs.next())
-            {
-                 if(proffesion.getSelectedItem().toString().equalsIgnoreCase("Teacher"))
-                {
-                    teacher_frame a=new teacher_frame();
-                    this.setVisible(false);
-                    a.setVisible(true);
-                }
-                  if(proffesion.getSelectedItem().toString().equalsIgnoreCase("Student"))
-                {
-                    sign_in a=new sign_in();
-                    this.setVisible(false);
-                    a.setVisible(true);
-                }
-                    if(proffesion.getSelectedItem().toString().equalsIgnoreCase("Hod"))
-                {
-                    hod_frame a=new hod_frame();
-                    this.setVisible(false);
-                    a.setVisible(true);
-                }  
-                     if(proffesion.getSelectedItem().toString().equalsIgnoreCase("Office Staff"))
-                {
-                    office_staff_frame a=new office_staff_frame();
-                    this.setVisible(false);
-                    a.setVisible(true);
-                }
-                     if(proffesion.getSelectedItem().toString().equalsIgnoreCase("librarian Staff"))
-                {
-                    library_frame a=new library_frame();
-                    this.setVisible(false);
-                    a.setVisible(true);
-                }
-                      if(proffesion.getSelectedItem().toString().equalsIgnoreCase("Principal"))
-                {
-                    principal_frame a=new principal_frame();
-                    this.setVisible(false);
-                    a.setVisible(true);
-                }
-                JOptionPane.showMessageDialog(null,"Login successfull..");
-            }                
-             else
-                JOptionPane.showMessageDialog(null,"Login failed..");
-            
-        }catch(SQLException ex)
-        {
-            JOptionPane.showMessageDialog(null,ex);
-        }
-        
-    }//GEN-LAST:event_Login_btMouseClicked
+    	if(this.loginTask(username.getText(),password.getText(),proffesion.getSelectedItem().toString())==1) {  	
+   
+    	 String login="Select * from noticeBoard.login where username=? AND password=? AND post=?";
+         try{
+             ps=conn.prepareStatement(login);
+             ps.setString(1,username.getText());
+             ps.setString(2,password.getText());
+             ps.setString(3,proffesion.getSelectedItem().toString());
+             rs=ps.executeQuery();
+             if(rs.next())
+             {
+                  if(proffesion.getSelectedItem().toString().equalsIgnoreCase("Teacher"))
+                 {
+                     teacher_frame a=new teacher_frame();
+                     this.setVisible(false);
+                     a.setVisible(true);
+                 }
+                   if(proffesion.getSelectedItem().toString().equalsIgnoreCase("Student"))
+                 {
+                     sign_in a=new sign_in();
+                     this.setVisible(false);
+                     a.setVisible(true);
+                 }
+                     if(proffesion.getSelectedItem().toString().equalsIgnoreCase("Hod"))
+                 {
+                     hod_frame a=new hod_frame();
+                     this.setVisible(false);
+                     a.setVisible(true);
+                 }  
+                      if(proffesion.getSelectedItem().toString().equalsIgnoreCase("Office Staff"))
+                 {
+                     office_staff_frame a=new office_staff_frame();
+                     this.setVisible(false);
+                     a.setVisible(true);
+                 }
+                      if(proffesion.getSelectedItem().toString().equalsIgnoreCase("librarian Staff"))
+                 {
+                     library_frame a=new library_frame();
+                     this.setVisible(false);
+                     a.setVisible(true);
+                 }
+                       if(proffesion.getSelectedItem().toString().equalsIgnoreCase("Principal"))
+                 {
+                     principal_frame a=new principal_frame();
+                     this.setVisible(false);
+                     a.setVisible(true);
+                 } 
+                 JOptionPane.showMessageDialog(null,"Login successfull..");
+             }                
+              else
+                 JOptionPane.showMessageDialog(null,"Login failed..");
+             
+         }catch(SQLException ex)
+         {
+             JOptionPane.showMessageDialog(null,ex);
+         }
+    	}
+         
+     }//GEN-LAST:event_Login_btMouseClicked
 
     /**
      * @param args the command line arguments
