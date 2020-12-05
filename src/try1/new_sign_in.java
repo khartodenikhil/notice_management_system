@@ -212,8 +212,9 @@ public class new_sign_in extends javax.swing.JFrame {
                         ps.setString(4, phone);
                         ps.setString(5, email);
                         int i= ps.executeUpdate();
-                        JOptionPane.showMessageDialog(null, "record succesfully added");
-
+                        if(register(name,post,password,phone,email)==1){
+                            JOptionPane.showMessageDialog(null, "registration succeful");
+                        }
                         login a=new login();
                         a.setVisible(true);
                         this.setVisible(false);

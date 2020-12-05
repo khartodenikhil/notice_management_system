@@ -47,6 +47,8 @@ public class hod_frame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon("/home/nikhil/Desktop/profile.jpg")); // NOI18N
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, 110, 123));
 
         jButton1.setIcon(new javax.swing.ImageIcon("/home/nikhil/Desktop/profile.jpeg")); 
 
