@@ -164,14 +164,14 @@ public class delete_user extends javax.swing.JFrame {
            
             else{
                     PreparedStatement ps;
-                   String query="delete from try.login (username,post,phone_number)values(?,?,?)";
+                   String query="delete from try.login where username = ?;"; // (username,post,phone_number)values(?,?,?);";
                     try
                     {
                         ps=conn.prepareStatement(query);
                         ps.setString(1, name);
                         
-                        ps.setString(3, post);
-                        ps.setString(4, phone);
+                        //ps.setString(2, post);
+                        //ps.setString(3, phone);
                         
                         int i= ps.executeUpdate();
                         JOptionPane.showMessageDialog(null, "record succesfully Delete");
