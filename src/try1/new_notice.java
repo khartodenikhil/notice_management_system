@@ -154,7 +154,7 @@ public class new_notice extends javax.swing.JFrame {
         if(notice.length()<99)
         {
          PreparedStatement ps;
-            String query="insert into nikhil.notice_details (notice_from,notice,notice_to,notice_time,notice_date)values(?,?,?,?,?)";
+            String query="insert into try.notice_details (notice_from,notice,notice_to,notice_time,notice_date)values(?,?,?,?,?)";
          try
            {
                ps=conn.prepareStatement(query);

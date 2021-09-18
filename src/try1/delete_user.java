@@ -164,7 +164,7 @@ public class delete_user extends javax.swing.JFrame {
            
             else{
                     PreparedStatement ps;
-                   String query="delete from nikhil.login (username,post,phone_number)values(?,?,?)";
+                   String query="delete from try.login (username,post,phone_number)values(?,?,?)";
                     try
                     {
                         ps=conn.prepareStatement(query);

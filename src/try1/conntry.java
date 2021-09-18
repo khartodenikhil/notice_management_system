@@ -19,12 +19,12 @@ class conntry {
                 Connection conn=null;
                 try
                 {
-                   conn =DriverManager.getConnection("jdbc:derby://localhost:1527/try", "nikhil", "root");
+                   conn =DriverManager.getConnection("jdbc:derby://localhost:3306/try", "root", "mysql123");
                     return conn;
                 }
                 catch(SQLException e)
                 {
-                    
+                    System.out.println("Error Occured: "+ e);
                 }
                 return null;
             }

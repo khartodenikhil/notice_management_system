@@ -41,7 +41,7 @@ public class principal_frame extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\nikhil\\Desktop\\images.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\nikhil\\Desktop\\images.png")); // NOI18N Needs to change
         jLabel1.setText("jLabel1");
 
         jButton1.setText("Create Notice");
